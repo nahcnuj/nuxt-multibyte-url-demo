@@ -1,4 +1,4 @@
-# multibyte-path
+# nuxt-multibyte-url-demo
 
 This is a demonstration of behaviour that fails to loading of payload.js at pages that URL includes multibyte characters.
 
