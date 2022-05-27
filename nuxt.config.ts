@@ -1,4 +1,6 @@
-export default {
+import { NuxtConfig } from "@nuxt/types"
+
+const config: NuxtConfig = {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -73,3 +75,5 @@ export default {
     base: process.env.BASE_PATH ?? '/'
   }
 }
+
+export default config
