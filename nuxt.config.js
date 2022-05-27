@@ -67,5 +67,9 @@ export default {
         }
       ]
     }
+  },
+
+  router: {
+    base: process.env.BASE_PATH ?? '/'
   }
 }
