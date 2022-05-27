@@ -42,5 +42,30 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  generate: {
+    routes() {
+      return [
+        {
+          route: '/hoge/日本語/',
+          payload: {
+            data: {
+              title: 'ハローワールド',
+              body: 'payload.js の読み込みに失敗する'
+            }
+          }
+        },
+        {
+          route: '/hoge/english/',
+          payload: {
+            data: {
+              title: 'Hello world',
+              body: 'It works well if the URL consists of ASCII characters only'
+            }
+          }
+        }
+      ]
+    }
   }
 }

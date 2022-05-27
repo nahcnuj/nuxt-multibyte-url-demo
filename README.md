@@ -1,69 +1,42 @@
 # multibyte-path
 
-## Build Setup
+This is a demonstration of behaviour that fails to loading of payload.js at pages that URL includes multibyte characters.
 
-```bash
-# install dependencies
-$ npm install
+## Reproduction steps
 
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+```sh
+git clone https://github.com/nahcnuj/nuxt-multibyte-url-demo.git
+cd nuxt-multibyte-url-demo
+npm i
+npm run generate
+npm run start
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+- http://localhost:3000/hoge/english/ works well, but
+- http://localhost:3000/hoge/日本語/ doesn't, because loading of payload.js fails.
 
-## Special Directories
+## Structure
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+- `nuxt.config.js`: `generate.routes` defines routes, passing payload
+- `pages/hoge/_id.vue`: the template uses data from payload in `asyncData`, set dummy data in `data` for type inference
 
-### `assets`
+## Initial configuration
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+```console
+$ npm init nuxt-app nuxt-multibyte-url-demo
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
-
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+create-nuxt-app v4.0.0
+✨  Generating Nuxt.js project in nuxt-multibyte-url-demo
+? Project name: nuxt-multibyte-url-demo
+? Programming language: TypeScript
+? Package manager: Npm
+? UI framework: None
+? Nuxt.js modules: (Press <space> to select, <a> to toggle all, <i> to invert selection)
+? Linting tools: (Press <space> to select, <a> to toggle all, <i> to invert selection)
+? Testing framework: None
+? Rendering mode: Universal (SSR / SSG)
+? Deployment target: Static (Static/Jamstack hosting)
+? Development tools: (Press <space> to select, <a> to toggle all, <i> to invert selection)
+? What is your GitHub username? nahcnuj
+? Version control system: Git
+```
