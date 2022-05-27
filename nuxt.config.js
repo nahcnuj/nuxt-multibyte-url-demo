@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'multibyte-path',
+    title: 'nuxt-multibyte-url-demo',
     htmlAttrs: {
       lang: 'en'
     },

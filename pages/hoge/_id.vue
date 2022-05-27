@@ -6,6 +6,13 @@
     <nav>
       <NuxtLink to="/">Go back</NuxtLink>
     </nav>
+    <div v-if="$route.params.id === '日本語'">
+      <p>以下のように表示されて欲しい。</p>
+      <div>
+        <h2>ハローワールド</h2>
+        <p>payload.js の読み込みに失敗する</p>
+      </div>
+    </div>
   </div>
 </template>
 
