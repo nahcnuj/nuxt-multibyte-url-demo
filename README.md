@@ -2,18 +2,21 @@
 
 This is a demonstration of behaviour that fails to loading of payload.js at pages that URL includes multibyte characters.
 
+This branch is a fixed version by a patch `./patches/@nuxt+vue-app+2.15.8.patch`.
+`patch-package` applies the patch.
+
 ## Reproduction steps
 
 ```sh
-git clone https://github.com/nahcnuj/nuxt-multibyte-url-demo.git
+git clone -b fix-by-patch https://github.com/nahcnuj/nuxt-multibyte-url-demo.git
 cd nuxt-multibyte-url-demo
 npm i
 npm run generate
 npm run start
 ```
 
-- http://localhost:3000/hoge/english/ works well, but
-- http://localhost:3000/hoge/日本語/ doesn't, because loading of payload.js fails.
+- http://localhost:3000/hoge/english/ works well, and
+- http://localhost:3000/hoge/日本語/ also works
 
 ## Structure
 
