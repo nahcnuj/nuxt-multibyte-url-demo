@@ -1,0 +1,20 @@
+diff --git a/node_modules/@nuxt/vue-app/template/App.js b/node_modules/@nuxt/vue-app/template/App.js
+index 1cd3be1..0765787 100644
+--- a/node_modules/@nuxt/vue-app/template/App.js
++++ b/node_modules/@nuxt/vue-app/template/App.js
+@@ -1,5 +1,5 @@
+ import Vue from 'vue'
+-import { decode, parsePath, withoutBase, withoutTrailingSlash, normalizeURL } from 'ufo'
++import { decode, parsePath, withoutBase, withoutTrailingSlash, normalizeURL, encode } from 'ufo'
+ <% utilsImports = [
+   ...(features.asyncData || features.fetch) ? [
+     'getMatchedComponentsInstances',
+@@ -328,7 +328,7 @@ export default {
+       <% } %>
+       const src = urlJoin(this.getStaticAssetsPath(route), 'payload.js')
+       try {
+-        const payload = await window.__NUXT_IMPORT__(path, normalizeURL(src))
++        const payload = await window.__NUXT_IMPORT__(encode(path), normalizeURL(src))
+         if (!prefetch) { this.setPagePayload(payload) }
+         return payload
+       } catch (err) {
